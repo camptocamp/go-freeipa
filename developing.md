@@ -46,7 +46,8 @@ curl 'https://dc1.test.local/ipa/session/json' -H 'Origin: https://dc1.test.loca
 ```
 
 You'll need to adjust the URLs and the value of the `ipa_session` cookie. You
-may also need to adjust `version` in the request body.
+may also need to adjust `version` in the request body (run `ipa --version` on
+the server to get the API version).
 
 ### `./dump-errors` step
 
