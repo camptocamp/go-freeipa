@@ -42,7 +42,7 @@ in your browser and copy your `ipa_session` cookie. Finally, make a request like
 the following curl command does:
 
 ```bash
-curl 'https://dc1.test.local/ipa/session/json' -H 'Origin: https://dc1.test.local' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Cookie: ipa_session=3057327ac9ea5622d7011b122d47790e' -H 'Referer: https://dc1.test.local/ipa/ui/' --data-binary '{"method":"schema","params":[[],{"version":"2.170"}]}' --insecure > ./data/schema.json
+curl 'https://dc1.test.local/ipa/session/json' -H 'Origin: https://dc1.test.local' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Cookie: ipa_session=3057327ac9ea5622d7011b122d47790e' -H 'Referer: https://dc1.test.local/ipa/ui/' --data-binary '{"method":"schema","params":[[],{"version":"2.251"}]}' --insecure > ./data/schema.json
 ```
 
 You'll need to adjust the URLs and the value of the `ipa_session` cookie. You
@@ -52,7 +52,7 @@ the server to get the API version).
 If you have a valid Kerberos setup, you can alternatively use this command:
 
 ```bash
-curl --negotiate -u : 'https://dc1.test.local/ipa/session/json' -H 'Origin: https://dc1.test.local' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Referer: https://dc1.test.local/ipa/ui/' --data-binary '{"method":"schema","params":[[],{"version":"2.170"}]}' | jq -c 'del(.principal)' > ./data/schema.json
+curl --negotiate -u : 'https://dc1.test.local/ipa/session/json' -H 'Origin: https://dc1.test.local' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Referer: https://dc1.test.local/ipa/ui/' --data-binary '{"method":"schema","params":[[],{"version":"2.251"}]}' | jq -c 'del(.principal)' > ./data/schema.json
 ```
 
 ### `./dump-errors` step
