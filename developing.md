@@ -49,6 +49,12 @@ You'll need to adjust the URLs and the value of the `ipa_session` cookie. You
 may also need to adjust `version` in the request body (run `ipa --version` on
 the server to get the API version).
 
+If you have a valid Kerberos setup, you can alternatively use this command:
+
+```bash
+curl --negotiate -u : 'https://dc1.test.local/ipa/session/json' -H 'Origin: https://dc1.test.local' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Referer: https://dc1.test.local/ipa/ui/' --data-binary '{"method":"schema","params":[[],{"version":"2.170"}]}' | jq -c 'del(.principal)' > ./data/schema.json
+```
+
 ### `./dump-errors` step
 
 The `schema` call does not return any information about possible error codes
