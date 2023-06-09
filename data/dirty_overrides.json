@@ -59,7 +59,8 @@
     "host": {
       "params": {
         "managedby_host": {
-          "required": false
+          "required": false,
+          "multivalue": true
         }
       }
     }
