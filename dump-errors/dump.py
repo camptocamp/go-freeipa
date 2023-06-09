@@ -25,7 +25,7 @@
 # requirements in conditions enabling the security of their systems and/or
 # data to be ensured and,  more generally, to use and operate it in the
 # same conditions as regards security.
-# 
+#
 # The fact that you are presently reading this means that you have had
 # knowledge of the CeCILL license and that you accept its terms.
 
@@ -37,7 +37,7 @@ import inspect
 import json
 
 ERRORS_PY_URL = (
-    "https://raw.githubusercontent.com/freeipa/freeipa/ipa-4-6/ipalib/errors.py"
+    "https://raw.githubusercontent.com/freeipa/freeipa/ipa-4-9/ipalib/errors.py"
 )
 
 import_regex = re.compile(r"^(from [\w\.]+ )?import \w+( as \w+)?$")
