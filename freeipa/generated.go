@@ -93053,7 +93053,7 @@ Managed by
 Managing
 
     */
-    ManagingHost *string `json:"managing_host,omitempty"`
+    ManagingHost *[]string `json:"managing_host,omitempty"`
   
     /*
 Users allowed to retrieve keytab
@@ -94960,15 +94960,10 @@ func (out *Host) UnmarshalJSON(data []byte) error {
     }
     
       if plainOk {
-        out.ManagingHost = &plainV
+        out.ManagingHost = &[]string{plainV}
       } else if sliceOk {
         
-          if len(sliceV) == 1 {
-            out.ManagingHost = &sliceV[0]
-          } else if len(sliceV) > 1 {
-            return fmt.Errorf("unexpected value for field ManagingHost: %v; expected at most one element", raw)
-          }
-        
+        out.ManagingHost = &sliceV
       } else {
         return fmt.Errorf("unexpected value for field ManagingHost: %v (%v)", raw, reflect.TypeOf(raw))
       }

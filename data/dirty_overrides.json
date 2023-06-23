@@ -61,6 +61,9 @@
         "managedby_host": {
           "required": false,
           "multivalue": true
+        },
+        "managing_host": {
+          "multivalue": true
         }
       }
     }
