@@ -89444,7 +89444,7 @@ Per-zone conditional forwarding policy. Set to "none" to disable forwarding to g
 Managedby permission
 
     */
-    Managedby string `json:"managedby,omitempty"`
+    Managedby *string `json:"managedby,omitempty"`
   
     /*
 Authoritative nameserver
@@ -89822,7 +89822,7 @@ func (out *Dnszone) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.Managedby != nil {
     raw := in.Managedby
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -89847,13 +89847,14 @@ func (out *Dnszone) UnmarshalJSON(data []byte) error {
     }
     
       if plainOk {
-        out.Managedby = plainV
+        out.Managedby = &plainV
       } else if sliceOk {
         
-          if len(sliceV) != 1 {
-            return fmt.Errorf("unexpected value for field Managedby: %v; expected exactly one element", raw)
+          if len(sliceV) == 1 {
+            out.Managedby = &sliceV[0]
+          } else if len(sliceV) > 1 {
+            return fmt.Errorf("unexpected value for field Managedby: %v; expected at most one element", raw)
           }
-          out.Managedby = sliceV[0]
         
       } else {
         return fmt.Errorf("unexpected value for field Managedby: %v (%v)", raw, reflect.TypeOf(raw))
@@ -95376,13 +95377,13 @@ Indirect Member of HBAC rule
 Membership managed by groups
 
     */
-    MembermanagerGroup string `json:"membermanager_group,omitempty"`
+    MembermanagerGroup *string `json:"membermanager_group,omitempty"`
   
     /*
 Membership managed by users
 
     */
-    MembermanagerUser string `json:"membermanager_user,omitempty"`
+    MembermanagerUser *string `json:"membermanager_user,omitempty"`
   }
 
 func (t *Hostgroup) String() string {
@@ -95899,7 +95900,7 @@ func (out *Hostgroup) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.MembermanagerGroup != nil {
     raw := in.MembermanagerGroup
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -95924,13 +95925,14 @@ func (out *Hostgroup) UnmarshalJSON(data []byte) error {
     }
     
       if plainOk {
-        out.MembermanagerGroup = plainV
+        out.MembermanagerGroup = &plainV
       } else if sliceOk {
         
-          if len(sliceV) != 1 {
-            return fmt.Errorf("unexpected value for field MembermanagerGroup: %v; expected exactly one element", raw)
+          if len(sliceV) == 1 {
+            out.MembermanagerGroup = &sliceV[0]
+          } else if len(sliceV) > 1 {
+            return fmt.Errorf("unexpected value for field MembermanagerGroup: %v; expected at most one element", raw)
           }
-          out.MembermanagerGroup = sliceV[0]
         
       } else {
         return fmt.Errorf("unexpected value for field MembermanagerGroup: %v (%v)", raw, reflect.TypeOf(raw))
@@ -95938,7 +95940,7 @@ func (out *Hostgroup) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.MembermanagerUser != nil {
     raw := in.MembermanagerUser
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -95963,13 +95965,14 @@ func (out *Hostgroup) UnmarshalJSON(data []byte) error {
     }
     
       if plainOk {
-        out.MembermanagerUser = plainV
+        out.MembermanagerUser = &plainV
       } else if sliceOk {
         
-          if len(sliceV) != 1 {
-            return fmt.Errorf("unexpected value for field MembermanagerUser: %v; expected exactly one element", raw)
+          if len(sliceV) == 1 {
+            out.MembermanagerUser = &sliceV[0]
+          } else if len(sliceV) > 1 {
+            return fmt.Errorf("unexpected value for field MembermanagerUser: %v; expected at most one element", raw)
           }
-          out.MembermanagerUser = sliceV[0]
         
       } else {
         return fmt.Errorf("unexpected value for field MembermanagerUser: %v (%v)", raw, reflect.TypeOf(raw))

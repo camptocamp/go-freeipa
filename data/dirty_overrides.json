@@ -66,6 +66,23 @@
           "multivalue": true
         }
       }
+    },
+    "hostgroup": {
+      "params": {
+        "membermanager_group": {
+          "required": false
+        },
+        "membermanager_user": {
+          "required": false
+        }
+      }
+    },
+    "dnszone": {
+      "params": {
+        "managedby": {
+          "required": false
+        }
+      }
     }
   }
 }
